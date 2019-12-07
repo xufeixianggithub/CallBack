@@ -1,12 +1,9 @@
-package com.xufx.neDemo;
+package com.xufx.nettyDemo;
 
-import java.io.UnsupportedEncodingException;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.CharsetUtil;
- 
+
 /**
  * Handler implementation for the echo server.
  * 

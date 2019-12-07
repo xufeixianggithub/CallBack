@@ -1,4 +1,4 @@
-package com.xufx.neDemo;
+package com.xufx.nettyDemo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

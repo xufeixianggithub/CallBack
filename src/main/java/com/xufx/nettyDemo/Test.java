@@ -1,9 +1,4 @@
-package com.xufx.neDemo;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+package com.xufx.nettyDemo;
 
 public class Test {
     public static void main(String[] args) {

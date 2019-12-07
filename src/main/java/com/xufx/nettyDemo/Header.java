@@ -1,4 +1,4 @@
-package com.xufx.neDemo;
+package com.xufx.nettyDemo;
 
 /**
  * Header.java
