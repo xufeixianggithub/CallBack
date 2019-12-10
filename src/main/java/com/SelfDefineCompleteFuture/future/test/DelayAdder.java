@@ -8,17 +8,30 @@ import com.SelfDefineCompleteFuture.listeners.IFutureListener;
  * @author lixiaohui 
  * 
  */  
-public class DelayAdder {  
+public class DelayAdder {
       
-    public static void main(String[] args) {  
-        new DelayAdder().add(3 * 1000, 1, 2).addListener(new IFutureListener<Integer>() {
-              
+    public static void main(String[] args) {
+        IFuture<Integer> future=new DelayAdder().add(3 * 1000, 1, 2)
+                .addListener(new IFutureListener<Integer>() {
             @Override
             public void operationCompleted(IFuture<Integer> future) throws Exception {
-                System.out.println(future.getNow());  
-            }  
-              
-        });  
+                System.out.println("operationCompleted"+future.getNow());
+            }
+        });
+
+        /*try{
+            System.out.println("future.get():"+future.get());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }*/
+
+        try{
+            System.out.println("future.getNow():"+future.getNow());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("main result");
+
     }  
     /** 
      * 延迟加 
@@ -42,7 +55,7 @@ public class DelayAdder {
         private DelayAdditionFuture future;  
           
         public DelayAdditionTask(long delay, int a, int b, DelayAdditionFuture future) {  
-            super();  
+            super();
             this.delay = delay;  
             this.a = a;  
             this.b = b;  
@@ -54,8 +67,9 @@ public class DelayAdder {
             try {  
                 Thread.sleep(delay);  
                 Integer i = a + b;  
-                // TODO 这里设置future为完成状态(正常执行完毕)  
-                future.setSuccess(i);  
+                // TODO 这里设置future为完成状态(正常执行完毕)
+                future.setSuccess(i);
+                //throw new InterruptedException();
             } catch (InterruptedException e) {  
                 // TODO 这里设置future为完成状态(异常执行完毕)  
                 future.setFailure(e.getCause());  

@@ -167,7 +167,8 @@ public class AbstractFuture<V> implements IFuture<V> {
             }  
   
             boolean interrupted = false;  
-            synchronized (this) {  
+            synchronized (this) {
+                System.out.println("测试this指向:"+this.getClass());
                 while (!isDone()) {  
                     try {  
                         wait(); // 释放锁进入waiting状态，等待其它线程调用本对象的notify()/notifyAll()方法  
