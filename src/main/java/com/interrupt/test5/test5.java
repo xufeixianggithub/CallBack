@@ -6,12 +6,12 @@ public class test5 {
     }
     public static void testRetry() {
         int i = 0;
-        //retry:  //①
+        retry:  //①
         while (true) {
             i++;
             System.out.println("i=" + i);
             int j = 0;
-            retry:   //②
+            //retry:   //②
             for (; ; ) {
                 j++;
                 System.out.println("j=" + j);
@@ -20,6 +20,6 @@ public class test5 {
                 }
             }
         }
-        //System.out.println("for-end");
+        System.out.println("for-end");
     }
 }
