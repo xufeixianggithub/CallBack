@@ -8,9 +8,9 @@ public class Demo1 extends ThreadPoolExecutor {
     private ConcurrentHashMap<String, Date> startTimes;
 
     public Demo1(int corePoolSize, int maximumPoolSize, long
-            keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
+            keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue,ThreadFactory myThreadFactory) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit,
-                workQueue);
+                workQueue,myThreadFactory);
         this.startTimes = new ConcurrentHashMap<>();
     }
 
@@ -56,12 +56,14 @@ public class Demo1 extends ThreadPoolExecutor {
     }
 
     public static ExecutorService newCachedThreadPool() {
+        MyThreadFactory myThreadFactory=new MyThreadFactory("myPoll");
         return new Demo1(1, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new
-                SynchronousQueue());
+                SynchronousQueue(),myThreadFactory);
     }
 
     public static ExecutorService newDefineThreadPool(int corePoolSize, int maximumPoolSize, long
             keepAliveTime,BlockingQueue<Runnable> workQueue) {
-        return new Demo1(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS,workQueue);
+            MyThreadFactory myThreadFactory=new MyThreadFactory("myPoll");
+        return new Demo1(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS,workQueue,myThreadFactory);
     }
 }

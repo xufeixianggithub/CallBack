@@ -27,6 +27,7 @@ public class DelayAdder {
 
         try{
             System.out.println("future.getNow():"+future.getNow());
+            future.get();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
