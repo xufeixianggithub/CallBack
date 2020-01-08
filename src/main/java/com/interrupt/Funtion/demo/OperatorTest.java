@@ -1,4 +1,4 @@
-package com.interrupt.Funtion.consume;
+package com.interrupt.Funtion.demo;
 
 import java.util.function.BinaryOperator;
 import java.util.function.UnaryOperator;

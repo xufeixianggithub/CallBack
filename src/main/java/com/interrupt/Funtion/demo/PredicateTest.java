@@ -1,7 +1,6 @@
-package com.interrupt.Funtion.consume;
+package com.interrupt.Funtion.demo;
 
 import java.util.function.BiPredicate;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class PredicateTest {
